@@ -1,0 +1,39 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AION Staking Contract</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+  <script>
+
+   // var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];;
+    //var date = new Date();
+
+    //document.getElementById("dateStr").innerHTML = months[date.getMonth()] + ' ' + date.getFullYear();
+    
+    const url = 'https://mainnet-api.theoan.com/aion/dashboard/getAccountDetails?accountAddress=a0733306c2ee0c60224b0e59efeae8eee558c0ca1b39e7e5a14a575124549416';
+    
+    $.getJSON(url, function(data) {
+      const balance = parseInt(data.content[0].balance);
+
+      document.getElementById("balance").innerHTML = balance.toLocaleString(); 
+    });
+
+  </script>
+</head>
+
+<body style="font-family: 'Roboto', sans-serif;text-align:center;font-size:32px;">
+
+  <h2>Total Staked</h2>
+  <div id="dateStr"></div>
+  <div id="balance"></div>
+</body>
+</html>
